@@ -12,7 +12,7 @@ $fraud = $notif->fraud_status;
 
 include '../includes/dbconfig.php';
 
-$token = '';
+$token = '1608104376265';
 
 $ref = '/Transaksi%20Pembayaran'.$token;
 
@@ -20,11 +20,11 @@ $ref = '/Transaksi%20Pembayaran'.$token;
 
 // var_dump($fetchData);
 // die;
-$status_code = 200;
+$status_code = 20;
 $data = [
   'status_code' => $status_code
 ];
-
+$postdata = $database->getReference($ref)->update($data);
 
 
 if ($transaction == 'capture') {
@@ -44,7 +44,7 @@ if ($transaction == 'capture') {
 
 else if ($transaction == 'settlement'){
   // TODO set payment status in merchant's database to 'Settlement'
-  $postdata = $database->getReference($ref)->update($data);
+ 
   echo "Transaction order_id: " . $order_id ." successfully transfered using " . $type;
   }
   else if($transaction == 'pending'){
