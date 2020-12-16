@@ -10,11 +10,13 @@ $type = $notif->payment_type;
 $order_id = $notif->order_id;
 $fraud = $notif->fraud_status;
 
+var_dump($transaction, $order_id);die;
+
 include '../includes/dbconfig.php';
 
 $token = '1608104376265';
 
-$ref = '/Transaksi%20Pembayaran'.$token;
+$ref = '/Transaksi%20Pembayaran/'.$token;
 
 // $fetchData = $database->getReference($ref)->getValue();
 
